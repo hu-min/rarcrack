@@ -1,6 +1,8 @@
 name: build
 
-on: [push, pull_request]
+on:
+  watch:
+    types: started
 
 env:
   LIBSTDC_VERSION: 5
